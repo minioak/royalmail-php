@@ -42,8 +42,8 @@ class RoyalMail {
 
     $modes = [
       'development' => ['soap_client' => STATIC_CLIENT, 'endpoint' => STATIC_ENDPOINT, 'static_responses' => STATIC_RESPONSE_DIRECTORY],
-      'onboarding'  => ['endpoint' => STATIC_ENDPOINT, 'soap_client_options' => ['location' => 'https://api.royalmail.net/shipping/v2']],
-      'live'        => ['endpoint' => STATIC_ENDPOINT, 'soap_client_options' => ['location' => 'https://api.royalmail.com/shipping/v2']]
+      'onboarding'  => ['endpoint' => STATIC_ENDPOINT, 'soap_client_options' => ['location' => 'https://api.royalmail.net/shipping/v2/onboarding']],
+      'live'        => ['endpoint' => STATIC_ENDPOINT, 'soap_client_options' => ['location' => 'https://api.royalmail.net/shipping/v2']]
     ];
 
 
