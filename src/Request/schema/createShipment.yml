@@ -233,3 +233,72 @@ properties:
           _key: unitOfMeasure/unitOfMeasureCode/code
           _default: "g"
           _hidden: true
+
+    internationalInfo:
+      _key: internationalInfo/parcels
+      _help: "Container for the details pertaining to a single shipment"
+      _multiple: 
+        multi_key: parcel
+
+      contentDetails:
+        _help: "This is a complex type detailing the contents of the package"
+        _multiple:
+          multi_key: contentDetail
+
+        value:
+          _key: unitValue
+          _pre_filter: Round
+          _help: "Value of content items within the shipment"
+
+        quantity:
+          _key: unitQuantity
+          _help: "Quantity of content items within the shipment"
+
+        description:
+          _key: description
+          _help: "Description of goods being delivered"
+
+        weight:
+          _key: unitWeight
+          grams:
+            _key: value
+            _help: >
+              Weight in grams of each item (no decimal places). If the service has a weight band, for example Special Delivery, 
+              then the upper band will be used. For example, 150 grams will use the 100 to 200 grams band. Tracked services, for 
+              example, do not have a band and therefore take the actual weight.
+            _pre_filter: Round
+            _validate:
+              Range:
+                min: 0
+                max: 99999
+
+          units:
+            _help: "Must be ‘g’ for grams"
+            _key: unitOfMeasure/unitOfMeasureCode/code
+            _default: "g"
+            _hidden: true
+
+      purposeOfShipment: 
+        _help: "The code associated with the purpose of shipment"
+        _key: ~/code
+        _options: shipping_purposes
+        _validate: Choice
+
+      weight:
+        grams:
+          _key: value
+          _help: >
+            Weight in grams of each item (no decimal places). If the service has a weight band, for example Special Delivery, 
+            then the upper band will be used. For example, 150 grams will use the 100 to 200 grams band. Tracked services, for 
+            example, do not have a band and therefore take the actual weight.
+          _pre_filter: Round
+          _validate:
+            Range:
+              min: 0
+              max: 99999
+
+        units:
+          _help: "Must be ‘g’ for grams"
+          _key: unitOfMeasure/unitOfMeasureCode/code
+          _default: "g"
+          _hidden: true
